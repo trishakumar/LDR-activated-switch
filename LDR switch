@@ -1,0 +1,26 @@
+#define LIGHT 2
+#define RELAY 9
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+pinMode(LIGHT, INPUT_PULLUP);
+pinMode(RELAY, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+int L = digitalRead(LIGHT);
+if(L == 1)
+{
+  Serial.println(" === light is ON");
+  digitalWrite(RELAY, LOW);
+}
+else
+{
+  Serial.println("light is OFF");
+  digitalWrite(RELAY, HIGH);
+  
+}
+delay(100);
+}
